@@ -1,22 +1,25 @@
+import { actions } from "../actions";
+
 const initialState = {
-  beersList: []
+  beers: []
 };
+
 export default (state = initialState, action) => {
-  switch (action.type) {
-    case "GET_BEERS":
-      debugger;
-      return { ...state, beers: action.beersList };
-    default:
-      return state;
+  if (action) {
+    switch (action.type) {
+      case actions.FETCH_BEERS: {
+        return { ...state, beers: action.beers };
+      }
+      default:
+        return state;
+    }
   }
 };
 
 export const getBeers = () => {
-  debugger;
   return dispatch => {
-    debugger;
     dispatch({
-      type: "GET_BEERS"
+      type: actions.FETCH_BEERS
     });
   };
 };

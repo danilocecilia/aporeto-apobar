@@ -1,27 +1,32 @@
 import fetch from "node-fetch";
+
 import { actions } from "../actions";
 import { config } from "../config";
-import store from "../stores";
 
 export const breweryAPI = () => next => action => {
-  // const updateBeer = async(id) => {
-  //     const response = await fetch(`${config.ApiEndPoint}/beers`, {
-  //         method: "PUT",
-  //         body: JSON.stringify({id})
-  //     })
-  // }
-  const getAllBeers = async () => {
-    const response = await fetch(`${config.ApiEndPoint}`, {
+  const loadBeers = async () => {
+    debugger;
+    console.log(config.ApiEndpoint);
+    const response = await fetch(`${config.ApiEndpoint}/beers`, {
       method: "GET"
-    }).then(response => {
-      response.json();
+    }).then(response => response.json());
+    if (response.status === false) {
       debugger;
-    });
-    if (response === false) {
-      debugger;
+      return next({});
     }
     next({
-      type: "GET_BEERS"
+      type: actions.FETCH_BEERS,
+      beers: response
     });
   };
+  next(action);
+
+  switch (action.type) {
+    case actions.FETCH_BEERS: {
+      loadBeers();
+      break;
+    }
+    default:
+      break;
+  }
 };

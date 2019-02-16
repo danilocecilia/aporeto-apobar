@@ -1,4 +1,15 @@
 import { combineReducers } from "redux";
-import brewery from "../reducers/brewery";
+import brewery from "./brewery";
+import { connectRouter } from "connected-react-router";
 
-export default combineReducers({ brewery });
+const rootReducer = history =>
+  combineReducers({
+    brewery,
+    router: connectRouter(history)
+    // login,
+    // pages,
+    // categories,
+    // items
+  });
+
+export default rootReducer;

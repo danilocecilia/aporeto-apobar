@@ -1,1 +1,1 @@
-exports.config = { ApiEndPoint: "http://0.0.0.0:9190" };
+exports.config = { ApiEndpoint: "http://0.0.0.0:9190" };
