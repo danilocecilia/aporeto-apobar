@@ -5,6 +5,9 @@ import configureStore, { history } from "./stores";
 import App from "./containers/app/App";
 import * as serviceWorker from "./serviceWorker";
 
+import "./styles/styles.scss";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 const store = configureStore();
 
 ReactDOM.render(

@@ -1,33 +1,38 @@
 import React, { Component } from "react";
-import { bindActionCreators } from "redux";
-import { getBeers } from "../../reducers/brewery";
 
-import { connect } from "react-redux";
+export default class Home extends Component {
+  renderCard = (type, url) => (
+    <div className="card" style={{ cursor: "pointer" }}>
+      <div className="card-image">
+        <figure className="image is-4by3">
+          <img src={url} alt="Placeholder image" />
+        </figure>
+      </div>
+      <div className="card-content">
+        <div className="media">
+          <div className="media-content">
+            <p className="title is-4">{type}</p>
+          </div>
+        </div>
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getBeers }, dispatch);
-
-// const mapDispatchToProps = dispatch => ({
-//   getBeers: dispatch(getBeers())
-// });
-
-const mapStateToProps = state => {
-  return {
-    beers: state.brewery
-  };
-};
-class Home extends Component {
-  componentDidMount() {
-    debugger;
-    this.props.getBeers();
-  }
+        <div className="content">Here you will have access to the {type}</div>
+      </div>
+    </div>
+  );
 
   render() {
-    return <div>uAHUAH</div>;
+    return (
+      <div className="columns">
+        <div className="column">
+          {this.renderCard(
+            "BREWERY",
+            "https://media.graytvinc.com/images/Beer7.png"
+          )}
+        </div>
+        <div className="column">
+          {this.renderCard("WINERY", "https://tinyurl.com/y2cdzzr7")}
+        </div>
+      </div>
+    );
   }
 }
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Home);

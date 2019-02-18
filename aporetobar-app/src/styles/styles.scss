@@ -1,0 +1,406 @@
+// import starting from the src/ folder
+@import "variables.scss";
+
+// import using ~
+// @import "~bulma/sass/utilities/_all.sass";
+// @import "~bulma/sass/base/_all.sass";
+// @import "~bulma/sass/elements/button.sass";
+// @import "~bulma/sass/layout/_all.sass";
+@import "~bulma/bulma.sass";
+
+a {
+  color: $blue;
+  &:hover {
+    color: $blue;
+  }
+}
+button {
+  background: none;
+  border: 0px solid;
+  color: $blue;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0px;
+}
+button:focus {
+  outline: none;
+}
+
+.home-login {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  i {
+    font-size: 24px;
+    margin-right: 0.75rem;
+  }
+}
+
+.notification {
+  padding: 1.25rem 1.5rem;
+}
+
+.navbar-brand {
+  margin-left: 0px !important;
+  align-items: center;
+  i {
+    font-size: 36px;
+    color: $blue;
+  }
+  i.fa-ban {
+    position: absolute;
+    font-size: 30px;
+    top: 10px;
+    left: 3px;
+    color: $red;
+  }
+  a.serverless-title {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 20px;
+    font-size: 20px;
+    line-height: 17px;
+    color: $primary;
+    span {
+      font-size: 12px;
+    }
+  }
+}
+.navbar-menu {
+  margin-right: 0px !important;
+  a,
+  button {
+    color: $blue;
+    i {
+      color: $primary;
+      margin-right: 10px;
+    }
+  }
+  .login {
+    label {
+      margin-right: 0.75rem;
+    }
+    i {
+      font-size: 24px;
+    }
+  }
+}
+
+.initializing {
+  font-size: 24px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  label {
+    margin-left: 20px;
+  }
+}
+
+.action-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  height: 64px;
+  padding: 0px 1.25rem;
+  @include touch {
+    height: 52px;
+  }
+  @include mobile {
+    height: auto;
+    flex-direction: column;
+    padding: 0.75rem 1.25rem;
+  }
+
+  button {
+    font-size: 1.4rem;
+  }
+  .new {
+    width: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    position: relative;
+    @include mobile {
+      margin-right: 0px;
+      height: 2rem;
+    }
+    i {
+      position: absolute;
+      &.fa-plus {
+        font-size: 0.6rem;
+        color: $red;
+      }
+    }
+  }
+}
+
+.pages {
+  margin-top: 0px;
+  .pages-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    &.dragging-over {
+      background-color: rgba($primary, 0.1);
+    }
+    .page {
+      margin: 0.75rem;
+      @include touch {
+        margin-right: 0px;
+        padding: 0.75rem;
+      }
+      .drag-handle {
+        width: 16px;
+        margin-left: 0.75rem;
+      }
+      &.current {
+        font-weight: bold;
+        color: $blue;
+      }
+      &.dragging {
+        background-color: rgba($blue, 0.1);
+      }
+    }
+  }
+  .page-form {
+    margin: 0.75rem 0px;
+    .box {
+      height: 64px;
+      @include touch {
+        height: 52px;
+      }
+      @include mobile {
+        height: auto;
+      }
+    }
+  }
+  .page-delete-confirm {
+    margin: 0.75rem 0px;
+    .actions {
+      margin-left: auto;
+      .delete-confirm {
+        color: $blue;
+      }
+    }
+  }
+  .failed {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.failed {
+  color: $red;
+}
+
+.categories {
+  .category {
+    .drag-handle {
+      width: 16px;
+      margin-right: 0.75rem;
+    }
+    .notification {
+      display: flex;
+      margin-bottom: 0px;
+    }
+    .name {
+      flex-grow: 1;
+    }
+  }
+  .category-form {
+    margin-top: 0.75rem;
+    .open {
+      margin-left: auto;
+      .fa-plus {
+        margin-right: 0.75rem;
+      }
+    }
+  }
+  .category-actions {
+    width: percentage(1/12);
+    @include mobile {
+      width: percentage(3/12);
+    }
+    display: flex;
+    justify-content: space-between;
+    .open {
+      margin-left: auto;
+    }
+  }
+  .category-delete-confirm {
+    .actions {
+      margin-left: auto;
+      .delete-confirm {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.items {
+  .item-list.dragging-over {
+    background-color: rgba($primary, 0.1);
+    min-height: 48px;
+  }
+  .empty {
+    height: 10px;
+  }
+  .item {
+    border-bottom: 1px solid rgba($primary, 0.5);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    @include mobile {
+      padding: 0.3rem 0.75rem;
+    }
+    &.dragging {
+      background-color: rgba($blue, 0.1);
+    }
+    .drag-handle {
+      width: 16px;
+      margin-right: 0.75rem;
+    }
+    .complete {
+      width: 18px;
+      margin-right: 0.75rem;
+      color: $primary;
+    }
+    .text-info {
+      flex-grow: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      @include mobile {
+        flex-wrap: wrap;
+      }
+      .name {
+        flex-grow: 1;
+        @include mobile {
+          width: 100%;
+        }
+      }
+      .time {
+        width: percentage(1/12);
+        @include mobile {
+          width: 50%;
+        }
+      }
+      .date {
+        width: percentage(1/12);
+        @include mobile {
+          width: 50%;
+        }
+      }
+    }
+    .item-actions {
+      width: percentage(1/12);
+      @include touch {
+        width: percentage(2/12);
+      }
+      @include mobile {
+        flex-direction: column;
+        width: percentage(1/12);
+      }
+      display: flex;
+      justify-content: space-between;
+      .open {
+        margin-left: auto;
+      }
+    }
+    .red4 {
+      color: #990000;
+    }
+    .red3 {
+      color: #cc0000;
+    }
+    .red2 {
+      color: #ff3300;
+    }
+    .red1 {
+      color: #ffcc33;
+    }
+  }
+  .item-form {
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    .name {
+      display: flex;
+      align-items: center;
+      @include mobile {
+        margin-bottom: 0.75rem;
+        width: 100%;
+        label {
+          width: percentage(3/12);
+        }
+      }
+      input {
+        flex-grow: 1;
+      }
+    }
+    .time,
+    .date {
+      display: flex;
+      align-items: center;
+      margin-left: 0.75rem;
+      @include mobile {
+        width: 100%;
+        margin-bottom: 0.75rem;
+        margin-left: 0px;
+        label {
+          width: percentage(3/12);
+        }
+      }
+    }
+    &.edit-form {
+      padding: 0px 0.75rem 0px 0px;
+      margin: 0px 0.75rem 0px 0px;
+      border-right: 1px solid rgba($primary, 0.5);
+    }
+    .open {
+      margin-left: auto;
+      .fa-plus {
+        margin-right: 0.75rem;
+      }
+    }
+  }
+}
+
+.inline-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  h3 {
+    width: 100%;
+    font-weight: bold;
+  }
+  label {
+    margin-right: 0.75rem;
+  }
+  input {
+    flex-grow: 1;
+    width: auto;
+  }
+  .actions {
+    width: 50px;
+    padding-left: 0.75rem;
+    box-sizing: content-box;
+    @include touch {
+      margin-left: auto;
+    }
+    display: flex;
+    button {
+      &.create {
+        color: $blue;
+      }
+      &.cancel {
+        color: $red;
+        margin-left: auto;
+      }
+    }
+  }
+}
