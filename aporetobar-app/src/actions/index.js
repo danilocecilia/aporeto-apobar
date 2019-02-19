@@ -6,10 +6,12 @@ export const actions = keyMirror({
   GET_BEER: null,
   DELETE_BEER: null,
   UPDATE_BEER: null,
+  GET_RANDON_BEER: null,
 
   // WINES
   FETCH_WINES: null,
   GET_WINE: null,
   DELETE_WINE: null,
-  UPDATE_WINE: null
+  UPDATE_WINE: null,
+  GET_RANDON_WINE: null
 });

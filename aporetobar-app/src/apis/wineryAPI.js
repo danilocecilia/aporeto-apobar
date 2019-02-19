@@ -75,6 +75,7 @@ export const wineryAPI = () => next => action => {
     }
     case actions.UPDATE_WINE: {
       updateWine(action.productItem);
+      break;
     }
     default:
       break;

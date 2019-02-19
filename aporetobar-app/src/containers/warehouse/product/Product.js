@@ -15,13 +15,13 @@ const Product = props => {
   } = props;
 
   const renderEdit = () => (
-    <div class="field">
-      <label class="label">Name</label>
+    <div className="field">
+      <label className="label">Name</label>
       <div className="columns">
         <div className="column is-11">
-          <div class="control">
+          <div className="control">
             <input
-              class="input"
+              className="input"
               type="text"
               placeholder="Product Name"
               value={productName}
@@ -30,7 +30,7 @@ const Product = props => {
           </div>
         </div>
         <div className="column">
-          <div class="control">
+          <div className="control">
             <button
               className="button is-button is-link"
               onClick={() => updateProduct()}
@@ -89,7 +89,7 @@ const Product = props => {
                           setCurrentProductName(item.name);
                         }}
                       >
-                        <i class="fa fa-edit" />
+                        <i className="fa fa-edit" />
                       </button>
                     </td>
                     <td>{item.name}</td>
@@ -97,7 +97,7 @@ const Product = props => {
                       <input
                         type="checkbox"
                         checked={isSelected(item.ID)}
-                        onClick={event => setSelectedProduct(item.ID)}
+                        onChange={event => setSelectedProduct(item.ID)}
                       />
                     </td>
                   </tr>

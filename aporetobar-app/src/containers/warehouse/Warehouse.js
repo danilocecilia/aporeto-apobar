@@ -101,6 +101,8 @@ class Warehouse extends Component {
       storeType === STORE_TYPE.WINE
         ? updateWine(productItem)
         : updateBeer(productItem);
+
+      this.setState({ productName: "", productID: "" });
     };
 
     const setCurrentProductName = name => {
@@ -114,7 +116,7 @@ class Warehouse extends Component {
     const renderBeerOrWine = () => {
       return (
         <Product
-          title={storeType == STORE_TYPE.BEER ? "Beer" : "Wine"}
+          title={storeType === STORE_TYPE.BEER ? "Beer" : "Wine"}
           productList={
             storeType === STORE_TYPE.BEER
               ? beers !== undefined
@@ -142,10 +144,22 @@ class Warehouse extends Component {
         <div className="tabs is-centered">
           <ul>
             <li className={isActive(STORE_TYPE.BEER)}>
-              <a onClick={() => handleOnClick(STORE_TYPE.BEER)}>BEERS</a>
+              <a
+                href="#"
+                name="beers"
+                onClick={() => handleOnClick(STORE_TYPE.BEER)}
+              >
+                BEERS
+              </a>
             </li>
             <li className={isActive(STORE_TYPE.WINE)}>
-              <a onClick={() => handleOnClick(STORE_TYPE.WINE)}>WINES</a>
+              <a
+                href="#"
+                name="wines"
+                onClick={() => handleOnClick(STORE_TYPE.WINE)}
+              >
+                WINES
+              </a>
             </li>
           </ul>
         </div>

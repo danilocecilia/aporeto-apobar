@@ -56,7 +56,7 @@ export const breweryAPI = () => next => action => {
     }
     next({
       type: actions.GET_BEER,
-      beers: response
+      beer: response
     });
   };
 
@@ -77,6 +77,7 @@ export const breweryAPI = () => next => action => {
     }
     case actions.UPDATE_BEER: {
       updateBeer(action.productItem);
+      break;
     }
     default:
       break;
