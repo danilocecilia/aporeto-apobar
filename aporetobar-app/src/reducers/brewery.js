@@ -9,6 +9,7 @@ export default (state = initialState, action) => {
   if (action) {
     switch (action.type) {
       case actions.FETCH_BEERS: {
+        debugger;
         return { ...state, beers: action.beers };
       }
       case actions.GET_BEER: {
@@ -32,36 +33,21 @@ export default (state = initialState, action) => {
   }
 };
 
-export const getBeers = () => {
-  return dispatch => {
-    dispatch({
-      type: actions.FETCH_BEERS
-    });
-  };
-};
+export const getBeers = () => ({
+  type: actions.FETCH_BEERS
+});
 
-export const getBeer = id => {
-  return dispatch => {
-    dispatch({
-      type: actions.GET_BEER
-    });
-  };
-};
+export const getBeer = id => ({
+  type: actions.GET_BEER,
+  id
+});
 
-export const deleteBeer = id => {
-  return dispatch => {
-    dispatch({
-      type: actions.DELETE_BEER,
-      id
-    });
-  };
-};
+export const deleteBeer = id => ({
+  type: actions.DELETE_BEER,
+  id
+});
 
-export const updateBeer = productItem => {
-  return dispatch => {
-    dispatch({
-      type: actions.UPDATE_BEER,
-      productItem
-    });
-  };
-};
+export const updateBeer = productItem => ({
+  type: actions.UPDATE_BEER,
+  productItem
+});

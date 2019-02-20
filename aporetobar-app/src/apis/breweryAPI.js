@@ -1,11 +1,9 @@
 import fetch from "node-fetch";
-
 import { actions } from "../actions";
 import { config } from "../config";
 
 export const breweryAPI = () => next => action => {
   const loadBeers = async () => {
-    console.log(config.ApiEndpoint);
     const response = await fetch(`${config.ApiEndpoint}/beers`, {
       method: "GET"
     }).then(response => response.json());
@@ -40,10 +38,10 @@ export const breweryAPI = () => next => action => {
     if (response.status === false) {
       return next({});
     }
-    next({
-      type: actions.DELETE_BEER,
-      beers: response
-    });
+    // next({
+    //   type: actions.DELETE_BEER,
+    //   beers: response
+    // });
   };
 
   const getBeer = async id => {

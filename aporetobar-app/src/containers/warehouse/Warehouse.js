@@ -52,6 +52,8 @@ class Warehouse extends Component {
     const handleOnClick = type => {
       if (type === STORE_TYPE.WINE) {
         this.props.getWines();
+      } else {
+        this.props.getBeers();
       }
 
       this.setState({
@@ -69,10 +71,10 @@ class Warehouse extends Component {
           : this.props.deleteBeer(id);
       });
 
-      this.setState({ selected: [] });
+      this.setState({ selected: [], productID: "", productName: "" });
     };
 
-    const handleSelectedProduc = id => {
+    const handleSelectedProduct = id => {
       const selectedIndex = selected.indexOf(id);
       let newSelected = [];
 
@@ -98,11 +100,13 @@ class Warehouse extends Component {
         name: this.state.productName
       };
 
-      storeType === STORE_TYPE.WINE
-        ? updateWine(productItem)
-        : updateBeer(productItem);
+      if (productItem.ID !== "" && productItem.name !== "") {
+        storeType === STORE_TYPE.WINE
+          ? updateWine(productItem)
+          : updateBeer(productItem);
 
-      this.setState({ productName: "", productID: "" });
+        this.setState({ productName: "", productID: "" });
+      }
     };
 
     const setCurrentProductName = name => {
@@ -128,7 +132,7 @@ class Warehouse extends Component {
           }
           selected={selected}
           setDeleteProduct={selected => handleDeleteProduct(selected)}
-          setSelectedProduct={id => handleSelectedProduc(id)}
+          setSelectedProduct={id => handleSelectedProduct(id)}
           updateProduct={() => updateProduct()}
           setCurrentProductName={name => setCurrentProductName(name)}
           setCurrentProductID={id => setCurrentProductID(id)}
